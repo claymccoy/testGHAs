@@ -1,0 +1,22 @@
+name: Test Action uuid=${{inputs.uuid}}
+inputs:
+  shouldFail:
+    type: boolean
+    required: true
+  runtimeInSeconds:
+    type: string
+    required: true
+  uuid:
+    type: string
+    required: false
+runs:
+  steps:
+    - name: run for runtime
+      shell: bash
+      run: |
+        sleep ${{inputs.runtimeInSeconds}}s
+    - name: run the thing
+      if: ${{ inputs.shouldFail }}
+      shell: bash
+      run: |
+        exit 1

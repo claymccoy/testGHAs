@@ -1,0 +1,27 @@
+name: Test Workflow uuid=${{ inputs.uuid }}
+on:
+  workflow_dispatch:
+    inputs:
+      shouldFail:
+        type: boolean
+        required: true
+      runtimeInSeconds:
+        type: string
+        required: true
+      uuid:
+        type: string
+        required: false
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run for runtime
+        shell: bash
+        run: |
+          sleep ${{inputs.runtimeInSeconds}}s
+      - name: determine conclusion
+        if: ${{ inputs.shouldFail }}
+        shell: bash
+        run: |
+          exit 1
