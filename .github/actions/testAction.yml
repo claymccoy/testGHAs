@@ -1,4 +1,5 @@
-name: Test Action uuid=${{inputs.uuid}}
+name: Test Action
+run-name: Test Action uuid=${{ inputs.uuid }}
 inputs:
   shouldFail:
     type: boolean

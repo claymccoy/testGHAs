@@ -1,4 +1,5 @@
-name: Test Workflow uuid=${{ inputs.uuid }}
+name: Test Workflow
+run-name: Test Workflow uuid=${{ inputs.uuid }}
 on:
   workflow_dispatch:
     inputs:
