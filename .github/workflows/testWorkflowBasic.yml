@@ -1,0 +1,13 @@
+name: Test Workflow Basic
+run-name: Test Workflow Basic
+on:
+  workflow_dispatch
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run for runtime
+        shell: bash
+        run: |
+          sleep 1s
